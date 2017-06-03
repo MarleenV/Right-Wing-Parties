@@ -1,0 +1,73 @@
+size(1800, 1000)
+background("red")
+
+import json
+upsData = []
+
+def setup():
+    global upsData
+    with open('proTrump_scraped.json') as infile:
+        upsData = json.load(infile)
+    print len(upsData)
+    print upsData[0]
+
+
+def draw():
+    global upsData
+    y = 0
+    # Only limit on the first 20
+    for ups in upsData[:20]:
+    		# draw each line 22 pixels lower
+        y = y + 80
+        # calculate the width of the bar sensibly (1150 / 3 for the widest bar)
+        
+    # def draw():
+    #     rotate(0.5)
+    #     speed (50)
+        barwidth = ups['ups'] / 12
+        width = min(FRAME * 20, barwidth)
+        fill(100, 100, 100)
+        rect(700, y - 13, width, 15)
+        
+        
+        fill(0, 0, 100)
+        text(ups['title'], 30, y, 600, 310)
+        font('Helvetica Neue', 15)
+        layout(leading=1.3)
+    
+    
+ 
+    
+    
+    
+        
+#     with open('proTrump_scraped.json') as infile:
+#     num_commentsData = json.load(infile)
+#     print len(num_commentsData)
+#     print num_commentsData[0]  
+
+#     x = 0
+#     for num_comments in num_commentsData[:100]:
+# 	# draw each line 22 pixels lower
+#         x = x + 255
+#         # calculate the width of the bar sensibly (1150 / 3 for the widest bar)
+#         barwidth = num_comments['num_comments'] / 10.05
+#         fill(0, 0, 100)
+#         rect(2050, x - 22, barwidth, 15)
+    
+
+    
+
+# Only limit on the first 20
+
+    
+    
+
+
+    
+
+    # http://plotdevice.io/tut/Typography
+    
+
+# 	fill(0, 0.8, 0)
+
