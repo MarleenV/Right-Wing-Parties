@@ -1,0 +1,49 @@
+size(1800, 1090)
+background(1.00, 0.84, 0.00)
+
+import json
+upsData = []
+
+def setup():
+    global upsData
+    with open('diealternative2_scraped.json') as infile:
+        upsData = json.load(infile)
+    print len(upsData)
+    print upsData[0]
+
+
+def draw():
+    global upsData
+    y = 0
+    # Only limit on the first 20
+    for ups in upsData[:22]:
+    		# draw each line 22 pixels lower
+        y = y + 80
+        # calculate the width of the bar sensibly (1150 / 3 for the widest bar)
+        
+        
+    # def draw():
+    #     rotate(0.5)
+    #     speed (50)
+        
+        barwidth = ups['ups'] / 0.013
+        width = min(FRAME * 20, barwidth)
+        fill(0)
+        rect(550, y - 13, width, 40)
+        
+        
+        
+        
+        
+        with font("Helvetica Neue", 40):
+            text("Die Alternative", 30, 40)
+        
+        
+        fill(0.80, 0.00, 0.00)
+        font('Helvetica Neue', 15)
+        text(ups['title'], 30, y, 500, 310)
+        layout(leading=1.3)
+        
+        
+        
+        
