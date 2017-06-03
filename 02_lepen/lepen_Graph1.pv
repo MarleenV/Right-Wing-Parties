@@ -1,0 +1,49 @@
+size(1800, 1090)
+background(100, 100, 100)
+
+import json
+upsData = []
+
+def setup():
+    global upsData
+    with open('lepen_scraped.json') as infile:
+        upsData = json.load(infile)
+    print len(upsData)
+    print upsData[0]
+
+
+def draw():
+    global upsData
+    y = 0
+    # Only limit on the first 20
+    for ups in upsData[:20]:
+    		# draw each line 22 pixels lower
+        y = y + 80
+        # calculate the width of the bar sensibly (1150 / 3 for the widest bar)
+        
+        
+    # def draw():
+    #     rotate(0.5)
+    #     speed (50)
+        
+        barwidth = ups['ups'] / 0.6
+        width = min(FRAME * 20, barwidth)
+        fill(0.00, 0.00, 0.55)
+        rect(550, y - 13, width, 40)
+        
+        
+        
+        
+        fill(0.80, 0.00, 0.00)
+        with font("Helvetica Neue", 40):
+            text("LePen", 30, 40)
+        
+        
+        fill(0.80, 0.00, 0.00)
+        font('Helvetica Neue', 15)
+        text(ups['title'], 30, y, 500, 310)
+        layout(leading=1.3)
+        
+        
+        
+        
